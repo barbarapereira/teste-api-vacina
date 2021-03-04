@@ -13,12 +13,10 @@ public class AplicacaoVacinaService {
     @Autowired
     AplicacaoVacinaRepository aplicacaoVacinaRepository;
 
+    @Autowired
+    UsuarioService usuarioService;
+
     public AplicacaoVacina incluirNovaAplicacao(AplicacaoVacina novaVacina){
-        Optional<AplicacaoVacina> vacinaExistente =
-                aplicacaoVacinaRepository.findByNomeDaVacina(novaVacina.getNomeDaVacina());
-        if(vacinaExistente.isPresent()){
-            throw new AplicacaoVacinaExistenteException();
-        }
         novaVacina = aplicacaoVacinaRepository.save(novaVacina);
         return novaVacina;
     }
