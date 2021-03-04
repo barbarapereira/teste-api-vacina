@@ -9,25 +9,18 @@ import java.time.LocalDate;
 
 public class UsuarioDto {
 
-    @NotBlank
-    @Email
-    private String email;
 
     @NotBlank
     @Id
     private String cpf;
 
+    @NotBlank
+    @Email
+    private String email;
+
     private String nome;
 
     private LocalDate dataDeNascimento;
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getCpf() {
         return cpf;
@@ -35,6 +28,14 @@ public class UsuarioDto {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getNome() {
