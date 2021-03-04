@@ -11,6 +11,10 @@ import java.time.LocalDate;
 @Table(name = "aplicacaoVacina")
 public class AplicacaoVacina {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long codigo;
+
     @Column
     @NotBlank
     @Email
@@ -22,6 +26,13 @@ public class AplicacaoVacina {
     @Column
     private LocalDate dataDeVacinacao;
 
+    public long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(long codigo) {
+        this.codigo = codigo;
+    }
 
     public String getEmail() {
         return email;
@@ -47,14 +58,17 @@ public class AplicacaoVacina {
         this.dataDeVacinacao = dataDeVacinacao;
     }
 
-    public AplicacaoVacina(LocalDate dataDeVacinacao, String nomeDaVacina, @Email @NotBlank String email) {
+    public AplicacaoVacina(long codigo, LocalDate dataDeVacinacao, String nomeDaVacina, @Email @NotBlank String email) {
+        this.codigo = codigo;
         this.nomeDaVacina = nomeDaVacina;
         this.dataDeVacinacao = dataDeVacinacao;
         this.email = email;
     }
 
+
     public AplicacaoVacinaDto criarDto(){
         AplicacaoVacinaDto dto = new AplicacaoVacinaDto();
+        dto.setCodigo(this.getCodigo());
         dto.setDataDeVacinacao(this.getDataDeVacinacao());
         dto.setNomeDaVacina(this.getNomeDaVacina());
         dto.setEmail(this.getEmail());

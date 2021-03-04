@@ -3,11 +3,18 @@ package com.barbara.pereira.vacina.dto;
 import com.barbara.pereira.vacina.entity.AplicacaoVacina;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
 public class AplicacaoVacinaDto {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long codigo;
 
     @Column
     @NotBlank
@@ -19,6 +26,10 @@ public class AplicacaoVacinaDto {
 
     @Column
     private LocalDate dataDeVacinacao;
+
+    public long getCodigo() { return codigo; }
+
+    public void setCodigo(long codigo) { this.codigo = codigo; }
 
     public String getEmail() {
         return email;
@@ -46,6 +57,6 @@ public class AplicacaoVacinaDto {
 
     public AplicacaoVacina criarNovaVacina(){
 
-        return new AplicacaoVacina(this.dataDeVacinacao, this.nomeDaVacina, this.email);
+        return new AplicacaoVacina(this.codigo, this.dataDeVacinacao, this.nomeDaVacina, this.email);
     }
 }
