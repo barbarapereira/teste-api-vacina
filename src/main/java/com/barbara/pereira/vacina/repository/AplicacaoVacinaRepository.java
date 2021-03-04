@@ -10,6 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface AplicacaoVacinaRepository extends JpaRepository<AplicacaoVacina, Long> {
-    @Query("SELECT av FROM AplicacaoVacina av WHERE av.nomeDAVacina=:nomeDaVacina")
+    @Query("SELECT av FROM AplicacaoVacina av WHERE av.nomeDaVacina=:nomeDaVacina")
     Optional<AplicacaoVacina> findByNomeDaVacina(@Param("nomeDaVacina") String nomeDaVacina);
 }
