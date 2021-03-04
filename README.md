@@ -24,3 +24,4 @@ Ao cadastrar um novo usuário, o meso deve inserir seus dados pessoais, cpf, e-m
 ...bash
     # Clonar o repositório
     $ git clone https://github.com/barbarapereira/teste-api-vacina.git
+...
