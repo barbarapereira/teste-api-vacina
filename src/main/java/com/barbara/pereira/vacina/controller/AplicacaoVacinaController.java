@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/aplicacaoVacinas")
 public class AplicacaoVacinaController {
@@ -19,7 +21,7 @@ public class AplicacaoVacinaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public AplicacaoVacinaDto incluir(@RequestBody AplicacaoVacinaDto novaVacinaDto){
+    public AplicacaoVacinaDto incluir(@RequestBody @Valid AplicacaoVacinaDto novaVacinaDto){
         AplicacaoVacina aplicacaoVacina =
                 aplicacaoVacinaService.incluirNovaAplicacao(novaVacinaDto.criarNovaVacina());
 

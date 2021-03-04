@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
@@ -16,7 +18,7 @@ public class UsuarioController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public UsuarioDto incluir(@RequestBody UsuarioDto novoUsuarioDto){
+    public UsuarioDto incluir(@RequestBody @Valid UsuarioDto novoUsuarioDto){
         Usuario usuario = usuarioService.incluirUsuario(novoUsuarioDto.criarUsuario());
 
         return usuario.criarDto();
