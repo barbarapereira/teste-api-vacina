@@ -2,9 +2,7 @@ package com.barbara.pereira.vacina.entity;
 
 import com.barbara.pereira.vacina.dto.AplicacaoVacinaDto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
