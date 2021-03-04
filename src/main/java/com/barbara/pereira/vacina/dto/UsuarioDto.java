@@ -2,6 +2,7 @@ package com.barbara.pereira.vacina.dto;
 
 import com.barbara.pereira.vacina.entity.Usuario;
 
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
@@ -13,6 +14,7 @@ public class UsuarioDto {
     private String email;
 
     @NotBlank
+    @Id
     private String cpf;
 
     private String nome;
